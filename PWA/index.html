@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>To Do</title>
+	<link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body class="mdc-typography">
+	<header class="mdc-top-app-bar">
+		<div class="mdc-top-app-bar__row">
+		  <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+			<a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
+			<span class="mdc-top-app-bar__title">To Do</span>
+		  </section>
+		</div>
+	</header>
+
+	<main class="mdc-top-app-bar--fixed-adjust">
+		<div class="row">
+			<div class="mdc-text-field">
+				<input type="text" id="my-text-field" class="mdc-text-field__input">
+				<label class="mdc-floating-label" for="my-text-field">To Do To Add</label>
+				<div class="mdc-line-ripple"></div>
+			</div>
+			<button class="mdc-button mdc-button--raised" id="add-button">
+				<span class="mdc-button__label">Add</span>
+			</button>
+		</div>
+		<div id="slot"></div>
+	</main>
+
+	<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+	<script type="module" src="script.js"></script>
+</body>
+</html>
