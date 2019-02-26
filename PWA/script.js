@@ -1,4 +1,5 @@
 import { html, render } from './node_modules/lit-html/lit-html.js'
+import { ip } from './config.js'
 
 document.querySelectorAll('.mdc-text-field').forEach((elem) => {
 	new mdc.textField.MDCTextField(elem)
@@ -19,14 +20,14 @@ const template = todos => {
 }
 
 const refresh = () => {
-	fetch('http://localhost:3030/todos')
+	fetch(`http://${ip}:3030/todos`)
 	.then(res => res.json())
 	.then(json => {
 		render(template(json.todos), document.querySelector('#slot'))
 	})
 }
 
-const addTodo = msg => fetch('http://localhost:3030/todos', {
+const addTodo = msg => fetch(`http://${ip}:3030/todos`, {
 	method: 'POST',
 	headers: {
 		'Content-Type': 'application/json'

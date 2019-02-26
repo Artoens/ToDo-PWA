@@ -18,6 +18,12 @@ cd PWA
 npm install
 ```
 
+Create client config file:
+```
+cp PWA/config-example.js PWA/config.js
+```
+Edit the IP adress in `config.js` if necessary.
+
 ## Start server
 ```
 node ./server/server.js
