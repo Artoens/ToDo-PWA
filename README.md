@@ -27,3 +27,4 @@ node ./server/server.js
 ```
 serve ./PWA
 ```
+Access client on port `5000`
