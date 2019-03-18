@@ -2,3 +2,5 @@ config.js
 node_modules
 bundle.js
 *.db
+*.pem
+bundle.js
