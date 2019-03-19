@@ -20,14 +20,14 @@ const template = todos => {
 }
 
 const refresh = () => {
-	fetch(`http://${ip}:3030/todos`)
+	fetch(`https://${ip}:8443/todos`)
 	.then(res => res.json())
 	.then(json => {
 		render(template(json.todos), document.querySelector('#slot'))
 	})
 }
 
-const addTodo = msg => fetch(`http://${ip}:3030/todos`, {
+const addTodo = msg => fetch(`https://${ip}:8443/todos`, {
 	method: 'POST',
 	headers: {
 		'Content-Type': 'application/json'

@@ -3,6 +3,12 @@ const NeDB = require('nedb')
 const express = require('express')
 const bodyParser = require('body-parser')
 const path = require('path')
+const fs = require('fs')
+const http = require('http')
+const https = require('https')
+const privateKey  = fs.readFileSync(path.join(__dirname, '../PWA/key.pem'), 'utf8')
+const certificate = fs.readFileSync(path.join(__dirname, '../PWA/cert.pem'), 'utf8')
+const credentials = {key: privateKey, cert: certificate}
 
 const todos = new NeDB({
 	filename: path.join(__dirname, 'todo.db'),
@@ -68,9 +74,23 @@ app.post('/todos', (req, res) => {
 	}
 })
 
-// Start the server.
-const port = 3030
+var httpServer = http.createServer(app)
+var httpsServer = https.createServer(credentials, app)
 
-app.listen(port, () => {
-	console.log(`Feathers server listening on port ${port}`)
+const port = 3030
+const httpsPort = 8443
+
+httpServer.listen(port, () => {
+	httpsServer.listen(httpsPort, () => {
+		console.log(`HTTP Server listening on port ${port}`)
+		console.log(`HTTPS Server listening on port ${httpsPort}`)
+	})
 })
+
+
+// Start the server.
+
+
+// app.listen(port, () => {
+// 	console.log(`Feathers server listening on port ${port}`)
+// })

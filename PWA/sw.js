@@ -48,7 +48,8 @@ self.onfetch = event => {
 
     const url = new URL(event.request.url)
 
-    if(url.origin === "http://172.17.3.199:3030") {
+    console.log(url.origin)
+    if(url.origin === "https://think.ecam.be:8443") {
         event.respondWith(networkFirst(event.request))
     }
     else {
@@ -68,6 +69,7 @@ const cacheFirst = (request) => {
 }
 
 const networkFirst = request => {
+    console.log("network-first")
     return caches.open("todo-dynamic").then(cache => {
         return fetch(request)
         .then(networkResponse => {
