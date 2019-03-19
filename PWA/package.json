@@ -5,7 +5,9 @@
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node ./node_modules/rollup/bin/rollup -c"
+    "build": "node ./node_modules/rollup/bin/rollup -c",
+    "prestart": "npm run build",
+    "start": "http-server --ssl -p 4443"
   },
   "author": "",
   "license": "ISC",
